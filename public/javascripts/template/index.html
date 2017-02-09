@@ -1,0 +1,23 @@
+<div class="controller">
+    <button type="button" class="btn btn-default" style="margin-top: 50px" ng-click="addDevice()">Add device</button>
+    <table class="table">
+        <thead class="bg-primary">
+            <tr>
+                <th>#</th>
+                <th>Device</th>
+                <th>Last Data Received</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="device in devices track by $index">
+                <td>{{$index + 1}}</td>
+                <td>{{device.name}}</td>
+                <td>{{device.dateTime | date:'medium'}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning" ng-click="removeDevice($index, device._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

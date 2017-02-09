@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #F5F5F5 url('images/body-bg.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+ng-map#map_container {
+    display: block;
+    width: 100%;
+    height: 500px
+}
+
+div.controller div.row {
+    margin: 0;
+}
+
+th {
+    text-transform: uppercase;
+}
+
+.mag-icon {
+    display: inline-block;
+    margin-right: 3px;
+    width: 10px;
+	height: 10px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.mag-icon-small {
+    background-color: #f71d1d;
+}
+
+.mag-icon-medium {
+    background-color: #ffe926;
+}
+
+.mag-icon-large {
+    background-color: #ff6a00;
+}
