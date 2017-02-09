@@ -71,7 +71,7 @@ app.post('/login', function (req, res) {
     if(user.password === req.body.password) {
         // from now on we'll identify the user by the id and
         // the id is the only personalized value that goes into our token
-        var payload = {id: user._id};
+        var payload = {id: user.id};
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
         res.json({
             message: 'ok',

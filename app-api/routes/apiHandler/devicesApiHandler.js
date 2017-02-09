@@ -1,6 +1,5 @@
 var path = require('path');
 var Devices = require('../../models/devices.js');
-var util = require('util');
 var sendJsonRes = require('../../libs/sendJsonRes');
 
 var getDevices = function (req, res) {

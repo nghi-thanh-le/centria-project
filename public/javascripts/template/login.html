@@ -1,0 +1,25 @@
+<div style="margin: 0 auto; margin-top: 10px; width: 500px; height: 250px;">
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Login</legend>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Username</label>
+                <div class="col-lg-10">
+                    <input type="text" ng-model="formInput.username" placeholder="Username" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-10">
+                    <input type="password" ng-model="formInput.password" placeholder="Password" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="button" class="btn btn-primary" ng-click="login()">Login</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

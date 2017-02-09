@@ -1,9 +1,8 @@
 angular.module('myApp')
-    .controller('mainController', function($scope, $http) {
-        var url = 'https://localhost:5000/api/devices';
+    .controller('devicesController', function($scope, $http) {
         $scope.devices = [];
 
-        $http.get(url)
+        $http.get('/api/devices')
             .then(function(result) {
                 $scope.devices = result.data;
             })
@@ -14,7 +13,7 @@ angular.module('myApp')
             });
 
         $scope.addDevice = function() {
-            $http.post('https://localhost:5000/api/device', {
+            $http.post('/api/device', {
                 name: 'test'.concat($scope.devices.length + 1)
             }).then(function (res) {
                 console.log('res:::', res.data.message);
@@ -25,9 +24,7 @@ angular.module('myApp')
         };
 
         $scope.removeDevice = function (index, _id) {
-            console.log('index:::::', index);
-            console.log('_id:::::', _id);
-            $http.delete('https://localhost:5000/api/device/'.concat(_id))
+            $http.delete('/api/device/'.concat(_id))
             .then(function (res) {
                 console.log(res.data.message);
                 $scope.devices.splice(index, 1);
