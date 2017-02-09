@@ -12,21 +12,12 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider, $ht
 
     jwtOptionsProvider.config({
         authPrefix: 'JWT '
-        // tokenGetter: ['$window', '$state', 'jwtHelper', function ($window, $state, jwtHelper) {
-        //    if ($window.localStorage.getItem('jwt') && jwtHelper.isTokenExpired($window.localStorage.getItem('jwt'))) {
-        //        $window.localStorage.removeItem('jwt');
-        //        $state.go('login');
-        //    } else {
-        //        return $window.localStorage.getItem('jwt');
-        //    }
-        // }]
     });
 
     $httpProvider.interceptors.push('jwtInterceptor');
 
     var stateSetUp = function (stateName) {
         return {
-            name: stateName,
             url: '/'.concat(stateName),
             templateUrl: 'javascripts/template/' + stateName + '.html',
             controller: stateName.concat('Controller')
@@ -35,8 +26,24 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider, $ht
 
     $stateProvider
         .state('login', stateSetUp('login'))
-        .state('users', stateSetUp('users'))
-        .state('devices', stateSetUp('devices'));
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: '/javascripts/template/dashboard/dashboardMain.html',
+            data: {
+                requiredLogin: true
+            },
+            controller: 'dashboardController'
+        })
+        .state('dashboard.users', {
+            url: '/users',
+            templateUrl: '/javascripts/template/dashboard/users.html',
+            controller: 'usersController'
+        })
+        .state('dashboard.devices', {
+            url: '/devices',
+            templateUrl: '/javascripts/template/dashboard/devices.html',
+            controller: 'devicesController'
+        });
 })
     .run(function ($rootScope, $state, $window, jwtHelper) {
         // var localStorage = $window.localStorage;
