@@ -8,7 +8,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider, $ht
         requireBase: false
     });
 
-    $urlRouterProvider.otherwise('/devices');
+    $urlRouterProvider.otherwise('/login');
 
     jwtOptionsProvider.config({
         authPrefix: 'JWT '

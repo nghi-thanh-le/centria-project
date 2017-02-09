@@ -1,30 +1,29 @@
 var secretKey = require('../../../app-server/config/secretKey');
 var jwt = require('jsonwebtoken');
-var Users = require('../../models/users');
+var Admins = require('../../models/admins');
 
 module.exports = function (req, res) {
     var post = {
         username: req.body.username,
         password: req.body.password
     };
-    // return res.status(200).json(post);
 
-    Users.findOne({
+    Admins.findOne({
         username: post.username
-    }, function (err, user) {
-        if(err || !user) {
+    }, function (err, admin) {
+        if(err || !admin) {
             return res.status(401).json({
-                message: 'user not found!',
+                message: 'admin not found!',
                 err: err
             });
-        } else if (user.password === post.password) {
+        } else if (admin.password === post.password) {
             var payload = {
-                _id: user._id
+                _id: admin._id
             };
             var token = jwt.sign(payload, secretKey, {
                 expiresIn: 2 * 24 * 60 * 60
             });
-            
+
             return res.status(200).json({
                 message: 'ok',
                 token: token

@@ -3,7 +3,7 @@ var passport = require('passport');
 var passportJWT = require('passport-jwt');
 var secretKey = require('./secretKey');
 
-var Users = require('../../app-api/models/users');
+var Admins = require('../../app-api/models/admins');
 
 var ExtractJwt = passportJWT.ExtractJwt;
 var JwtStrategy = passportJWT.Strategy;
@@ -14,8 +14,8 @@ var jwtOptions = {
 };
 
 var strategy = new JwtStrategy(jwtOptions, function (jwt_payload, next) {
-    Users.findById({
-        _id: jwt_payload.id
+    Admins.findById({
+        _id: jwt_payload._id
     }, function (err, user) {
         if(user) {
             next(null, user);
