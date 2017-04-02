@@ -20,6 +20,17 @@ From now you can run the command ( you need to be at the project).
 npm install
 ```
 
+To initialize admin:
+```
+node ./app-api/libs/initAdmin.js
+```
+
+To initialize data (not mandatory):
+```
+node ./app-api/libs/initDb.js
+```
+
+
 then 
 
 ``` 
