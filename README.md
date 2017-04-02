@@ -16,6 +16,12 @@ When you finish installing global packages, please run mongodb server (default p
 connection need to be running all the time. 
 
 From now you can run the command ( you need to be at the project).
+```
+npm install
+```
+
+then 
+
 ``` 
 npm start
 ```  
